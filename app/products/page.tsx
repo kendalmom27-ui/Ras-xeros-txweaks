@@ -1,87 +1,203 @@
-﻿import PageShell from "../../components/PageShell";
-import { site, products } from "../../lib/site";
+import PageShell from "../../components/PageShell";
+import PurchaseModal from "../../components/PurchaseModal";
+import Testimonials from "../../components/Testimonials";
+
+const products = [
+  {
+    title: "FREE BIOS Optimization",
+    price: "FREE",
+    badge: "100% FREE",
+    color: "green",
+    desc: "Professional BIOS optimization provided by RAS TXWEAKS. Every optimization is customized specifically for your hardware to maximize performance, improve stability, lower latency, and increase responsiveness.",
+    features: [
+      "Advanced BIOS Tuning",
+      "Memory Optimization",
+      "CPU Optimization",
+      "Performance Configuration",
+      "Personalized For Your PC"
+    ],
+    button: "Book Free Session"
+  },
+
+  {
+    title: "Full Optimization",
+    price: "$25",
+    badge: "MOST POPULAR",
+    color: "cyan",
+    desc: "Complete Windows optimization including registry tweaks, FPS improvements, latency reduction, startup optimization and gaming performance tuning.",
+    features: [
+      "Windows Optimization",
+      "Registry Tweaks",
+      "FPS Boost",
+      "Input Delay Reduction",
+      "Gaming Tweaks"
+    ],
+    button: "Purchase"
+  },
+
+  {
+    title: "Extreme Tweaks",
+    price: "$15",
+    badge: "PERFORMANCE",
+    color: "cyan",
+    desc: "Aggressive performance package built for competitive gamers who want maximum responsiveness and lower latency.",
+    features: [
+      "Latency Tweaks",
+      "Network Optimization",
+      "CPU Tweaks",
+      "Timer Resolution",
+      "Competitive Preset"
+    ],
+    button: "Purchase"
+  },
+
+  {
+    title: "XERO'S Utility",
+    price: "$10",
+    badge: "LIFETIME",
+    color: "cyan",
+    desc: "Premium optimization utility featuring one-click tweaks, gaming profiles, Windows cleanup and lifetime updates.",
+    features: [
+      "One Click Tweaks",
+      "Gaming Profiles",
+      "Windows Cleaner",
+      "FPS Optimizer",
+      "Lifetime Updates"
+    ],
+    button: "Purchase"
+  }
+];
 
 export default function ProductsPage() {
   return (
     <PageShell>
       <main className="min-h-screen bg-black pt-28 text-white">
-        <section className="mx-auto max-w-7xl px-6 pb-24 md:px-8">
-          <span className="rounded-full border border-cyan-500/30 bg-cyan-500/10 px-4 py-2 text-sm font-semibold text-cyan-400">
-            {site.fullName}
-          </span>
 
-          <h1 className="mt-6 text-5xl font-black md:text-6xl">
-            Products & Services
-          </h1>
+        <section className="mx-auto max-w-6xl px-8 pb-24">
 
-          <p className="mt-6 max-w-3xl text-lg leading-8 text-gray-400">
-            {site.fullName} provides professional PC optimization solutions
-            designed to improve gaming performance, reduce latency, and enhance
-            overall system responsiveness.
-          </p>
+          <div className="text-center">
 
-          <div className="mt-16 grid gap-8 lg:grid-cols-3">
-            {products.map((product) => (
+            <span className="rounded-full border border-cyan-500/30 bg-cyan-500/10 px-5 py-2 text-sm font-bold tracking-widest text-cyan-400">
+              PRODUCTS
+            </span>
+
+            <h1 className="mt-8 text-5xl font-black">
+              Optimization <span className="text-cyan-400">Packages</span>
+            </h1>
+
+            <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-gray-400">
+              Choose the optimization package that's right for your PC. Every
+              service is designed to maximize gaming performance while keeping
+              your system stable and reliable.
+            </p>
+
+          </div>
+
+          <div className="mt-20 grid gap-6 lg:grid-cols-4">
+
+            {products.map((p) => (
+
               <div
-                key={product.name}
-                className="rounded-2xl border border-white/10 bg-white/5 p-8 transition hover:border-cyan-500/30"
+                key={p.title}
+                className="overflow-hidden rounded-2xl border border-white/10 bg-[#0B0B0D] transition duration-300 hover:-translate-y-2 hover:border-cyan-500/60 hover:shadow-[0_0_35px_rgba(0,229,255,0.18)]"
               >
-                <h2 className="text-2xl font-bold text-cyan-400">
-                  {product.name}
-                </h2>
-                <div className="mt-4 text-4xl font-black">{product.price}</div>
-                <p className="mt-4 leading-7 text-gray-400">
-                  {product.description}
-                </p>
-                <a
-                  href={product.href}
-                  className="mt-8 inline-block rounded-xl bg-cyan-500 px-6 py-3 font-bold text-black transition hover:bg-cyan-400"
-                >
-                  Learn More
-                </a>
+
+                <div
+                  className={
+                    p.color === "green"
+                      ? "h-2 bg-green-500"
+                      : "h-2 bg-cyan-400"
+                  }
+                />
+
+                <div className="p-6">
+
+                  <span
+                    className={
+                      p.color === "green"
+                        ? "rounded-full bg-green-500/15 px-4 py-2 text-xs font-bold tracking-widest text-green-400"
+                        : "rounded-full bg-cyan-500/15 px-4 py-2 text-xs font-bold tracking-widest text-cyan-400"
+                    }
+                  >
+                    {p.badge}
+                  </span>
+
+                  <h2 className="mt-6 text-2xl font-black">
+                    {p.title}
+                  </h2>
+
+                  <div
+                    className={
+                      p.color === "green"
+                        ? "mt-5 text-5xl font-black text-green-400"
+                        : "mt-5 text-5xl font-black text-cyan-400"
+                    }
+                  >
+                    {p.price}
+                  </div>
+
+                  <p className="mt-6 leading-8 text-gray-400">
+                    {p.desc}
+                  </p>
+
+                  <div className="mt-8 space-y-3">
+
+                    {p.features.map((feature) => (
+
+                      <div
+                        key={feature}
+                        className="flex items-center gap-3 text-gray-300"
+                      >
+
+                        <div
+                          className={
+                            p.color === "green"
+                              ? "h-2 w-2 rounded-full bg-green-400"
+                              : "h-2 w-2 rounded-full bg-cyan-400"
+                          }
+                        />
+
+                        {feature}
+
+                      </div>
+
+                    ))}
+
+                  </div>
+
+                  {p.price === "FREE" ? (
+  <PurchaseModal product={p.title} price={p.price} />
+) : (
+  <PurchaseModal
+    product={p.title}
+    price={p.price}
+  />
+)}
+
+                </div>
+
               </div>
+
             ))}
+
           </div>
 
-          <div className="mt-16 grid gap-8 md:grid-cols-2">
-            <div className="rounded-2xl border border-green-500/30 bg-green-500/10 p-8">
-              <h2 className="text-3xl font-bold text-green-400">
-                BIOS Optimization
-              </h2>
-              <p className="mt-2 text-sm font-semibold text-green-300">FREE</p>
-              <p className="mt-5 leading-8 text-gray-300">
-                Advanced BIOS optimization for supported systems. Every
-                optimization is tailored to your hardware instead of using
-                generic settings.
-              </p>
-              <ul className="mt-6 space-y-3 text-gray-300">
-                <li>✔ Memory Configuration</li>
-                <li>✔ CPU Optimization Guidance</li>
-                <li>✔ Performance-Focused BIOS Settings</li>
-                <li>✔ Stability Verification</li>
-              </ul>
-            </div>
+          <Testimonials />
 
-            <div className="rounded-2xl border border-cyan-500/30 bg-cyan-500/10 p-8">
-              <h2 className="text-3xl font-bold text-cyan-400">
-                Ras&Xero Utility
-              </h2>
-              <div className="mt-4 text-5xl font-black">$10</div>
-              <p className="mt-5 leading-8 text-gray-300">
-                Our premium desktop optimization utility with Windows tweaks,
-                registry optimizations, and gaming performance tools.
-              </p>
-              <ul className="mt-6 space-y-3 text-gray-300">
-                <li>✔ Windows Optimization</li>
-                <li>✔ Registry Tweaks</li>
-                <li>✔ Gaming Performance Tweaks</li>
-                <li>✔ Latency Optimizations</li>
-                <li>✔ Lifetime Updates</li>
-              </ul>
-            </div>
-          </div>
         </section>
+
       </main>
     </PageShell>
   );
 }
+
+
+
+
+
+
+
+
+
+
+
