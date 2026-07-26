@@ -1,24 +1,9 @@
 import PageShell from "../../components/PageShell";
 import PurchaseModal from "../../components/PurchaseModal";
+import FreeBiosModal from "../../components/FreeBiosModal";
 import Testimonials from "../../components/Testimonials";
 
 const products = [
-  {
-    title: "FREE BIOS Optimization",
-    price: "FREE",
-    badge: "100% FREE",
-    color: "green",
-    desc: "Professional BIOS optimization provided by RAS TXWEAKS. Every optimization is customized specifically for your hardware to maximize performance, improve stability, lower latency, and increase responsiveness.",
-    features: [
-      "Advanced BIOS Tuning",
-      "Memory Optimization",
-      "CPU Optimization",
-      "Performance Configuration",
-      "Personalized For Your PC"
-    ],
-    button: "Book Free Session"
-  },
-
   {
     title: "Full Optimization",
     price: "$25",
@@ -165,14 +150,7 @@ export default function ProductsPage() {
 
                   </div>
 
-                  {p.price === "FREE" ? (
-  <PurchaseModal product={p.title} price={p.price} />
-) : (
-  <PurchaseModal
-    product={p.title}
-    price={p.price}
-  />
-)}
+                  {p.price === "FREE" ? <FreeBiosModal /> : <PurchaseModal product={p.title} price={p.price} />}
 
                 </div>
 
@@ -190,6 +168,11 @@ export default function ProductsPage() {
     </PageShell>
   );
 }
+
+
+
+
+
 
 
 

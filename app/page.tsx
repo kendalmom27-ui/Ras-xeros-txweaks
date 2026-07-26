@@ -1,4 +1,5 @@
-﻿import PageShell from "../components/PageShell";
+import PageShell from "../components/PageShell";
+import FreeBiosModal from "../components/FreeBiosModal";
 import Hero from "../components/home/Hero";
 import Features from "../components/home/Features";
 import GameBenchmarks from "../components/home/GameBenchmarks";
@@ -18,3 +19,4 @@ export default function Home() {
     </PageShell>
   );
 }
+

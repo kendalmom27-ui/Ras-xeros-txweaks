@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -41,7 +41,7 @@ export default function Navbar() {
             Discord
           </Link>
           <Link
-            href="/downloads"
+            href="/free-bios"
             className="rounded-lg bg-cyan-500 px-4 py-2 text-sm font-bold text-black transition hover:bg-cyan-400"
           >
             Try Free
@@ -51,3 +51,4 @@ export default function Navbar() {
     </nav>
   );
 }
+
