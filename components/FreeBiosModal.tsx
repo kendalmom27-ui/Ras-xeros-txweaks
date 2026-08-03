@@ -15,8 +15,8 @@ export default function FreeBiosModal() {
       </button>
 
       {open && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-md animate-fade-in">
-          <div className="relative w-[92%] max-w-2xl overflow-hidden rounded-3xl border border-green-500/30 bg-[#090909] shadow-[0_0_40px_rgba(34,197,94,.18)]">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-md animate-fade-in p-4">
+          <div className="relative w-[92%] max-w-2xl max-h-[90vh] overflow-y-auto rounded-3xl border border-green-500/30 bg-[#090909] shadow-[0_0_40px_rgba(34,197,94,.18)]">
 
             <div className="h-1 w-full bg-gradient-to-r from-green-400 via-cyan-400 to-green-400"></div>
 

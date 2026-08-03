@@ -33,11 +33,11 @@ export default function PurchaseModal({
         createPortal(
           <div
             onClick={() => setOpen(false)}
-            className="fixed inset-0 z-[999999] flex items-center justify-center bg-black/80 backdrop-blur-md"
+            className="fixed inset-0 z-[999999] flex items-center justify-center bg-black/80 backdrop-blur-md p-4"
           >
             <div
               onClick={(e) => e.stopPropagation()}
-              className="w-[480px] rounded-3xl border border-cyan-500/30 bg-[#090909] p-8 shadow-[0_0_60px_rgba(0,229,255,.20)]"
+              className="w-[480px] max-w-full max-h-[90vh] overflow-y-auto rounded-3xl border border-cyan-500/30 bg-[#090909] p-8 shadow-[0_0_60px_rgba(0,229,255,.20)]"
             >
               <h2 className="text-3xl font-black text-white">
                 Complete Purchase
