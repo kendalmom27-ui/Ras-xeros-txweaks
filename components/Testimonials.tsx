@@ -20,42 +20,41 @@ export default function Testimonials() {
   return (
     <section className="mx-auto mt-28 max-w-7xl px-6">
       <div className="text-center">
-        <p className="text-cyan-400 font-bold tracking-[0.3em] uppercase">
-          Testimonials
-        </p>
-
-        <h2 className="mt-4 text-5xl font-black">
+        <span className="eyebrow justify-center">Field Reports</span>
+        <h2 className="mt-3.5 text-5xl font-black tracking-tight">
           Trusted by Gamers
         </h2>
-
-        <p className="mt-4 text-gray-400">
+        <p className="mt-4 text-ink-dim">
           Real feedback from our community.
         </p>
       </div>
 
       <div className="mt-14 grid gap-6 md:grid-cols-3">
 
-        {reviews.map((r) => (
+        {reviews.map((r, i) => (
 
           <div
             key={r.name}
-            className="rounded-3xl border border-white/10 bg-[#090909] p-8 transition duration-300 hover:-translate-y-2 hover:border-cyan-500 hover:shadow-[0_0_35px_rgba(0,229,255,.18)]"
+            className="panel p-8 transition duration-300 hover:-translate-y-1"
           >
+            <span className="font-mono text-[.68rem] text-muted">
+              ENTRY {String(i + 1).padStart(3, "0")}
+            </span>
 
-            <div className="text-2xl text-yellow-400">
+            <div className="mt-2 text-2xl text-signal">
               {r.rating}
             </div>
 
-            <p className="mt-6 leading-8 text-gray-300">
+            <p className="mt-6 leading-8 text-ink-dim">
               &ldquo;{r.text}&rdquo;
             </p>
 
-            <div className="mt-8 border-t border-white/10 pt-5">
-              <h3 className="font-bold text-white">
+            <div className="mt-8 border-t border-line pt-5">
+              <h3 className="font-bold text-ink">
                 {r.name}
               </h3>
 
-              <p className="text-sm text-cyan-400">
+              <p className="font-mono text-xs text-muted">
                 Verified Customer
               </p>
             </div>

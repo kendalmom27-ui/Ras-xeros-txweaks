@@ -1,24 +1,136 @@
 ﻿@import "tailwindcss";
 
+@theme {
+  --color-bg: #0a0d0b;
+  --color-bg-raised: #101512;
+  --color-bg-raised-2: #151c18;
+  --color-ink: #e8f2ec;
+  --color-ink-dim: #b9c6bf;
+  --color-muted: #7c9186;
+  --color-signal: #57f0a6;
+  --color-signal-dim: rgba(87, 240, 166, 0.14);
+  --color-alert: #ffb454;
+  --color-alert-dim: rgba(255, 180, 84, 0.14);
+  --color-line: rgba(232, 242, 236, 0.1);
+  --color-line-strong: rgba(232, 242, 236, 0.18);
+  --font-mono: ui-monospace, "Cascadia Mono", "SFMono-Regular", Consolas,
+    "Roboto Mono", monospace;
+}
+
 html {
   scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
-  background: #000000;
-  color: white;
+  background: var(--color-bg);
+  color: var(--color-ink);
 }
 
 .hero-grid {
   background-image:
-    linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px);
+    linear-gradient(rgba(87, 240, 166, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(87, 240, 166, 0.04) 1px, transparent 1px);
   background-size: 60px 60px;
   mask-image: radial-gradient(ellipse at center, black 20%, transparent 70%);
 }
 
 ::selection {
-  background: rgba(0, 212, 255, 0.3);
-  color: white;
+  background: var(--color-signal);
+  color: #04140d;
+}
+
+/* Instrument-bezel corner brackets — used instead of rounded cards/accent rails */
+.panel {
+  position: relative;
+  background: var(--color-bg-raised);
+  border: 1px solid var(--color-line);
+}
+.panel::before,
+.panel::after {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  pointer-events: none;
+}
+.panel::before {
+  top: -1px;
+  left: -1px;
+  border-top: 2px solid var(--color-signal);
+  border-left: 2px solid var(--color-signal);
+}
+.panel::after {
+  bottom: -1px;
+  right: -1px;
+  border-bottom: 2px solid var(--color-signal);
+  border-right: 2px solid var(--color-signal);
+}
+.panel.panel-alert::before,
+.panel.panel-alert::after {
+  border-color: var(--color-alert);
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-signal);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55em;
+}
+.eyebrow::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  background: var(--color-signal);
+  box-shadow: 0 0 0 3px var(--color-signal-dim);
+  flex: none;
+}
+.eyebrow.eyebrow-alert {
+  color: var(--color-alert);
+}
+.eyebrow.eyebrow-alert::before {
+  background: var(--color-alert);
+  box-shadow: 0 0 0 3px var(--color-alert-dim);
+}
+
+.bus-line {
+  position: relative;
+  height: 2px;
+  background: var(--color-line-strong);
+}
+.bus-line .pulse {
+  position: absolute;
+  top: -3px;
+  width: 8px;
+  height: 8px;
+  background: var(--color-signal);
+  box-shadow: 0 0 12px 2px var(--color-signal-dim);
+  animation: bus-travel 5.5s linear infinite;
+}
+@keyframes bus-travel {
+  0% {
+    left: 0%;
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+  }
+  95% {
+    opacity: 1;
+  }
+  100% {
+    left: 100%;
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bus-line .pulse {
+    animation: none;
+    display: none;
+  }
 }

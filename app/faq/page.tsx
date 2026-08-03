@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState } from "react";
 import PageShell from "../../components/PageShell";
@@ -35,36 +35,36 @@ export default function FAQPage() {
 
   return (
     <PageShell>
-      <main className="min-h-screen bg-[#05070B] pt-28 text-white">
+      <main className="min-h-screen bg-bg pt-28 text-ink">
         <section className="mx-auto max-w-5xl px-6 pb-24">
 
-          <h1 className="text-center text-6xl font-black">
-            FREQUENTLY <span className="text-cyan-400">ASKED QUESTIONS</span>
-          </h1>
+          <div className="text-center">
+            <span className="eyebrow justify-center">Support Log</span>
+            <h1 className="mt-3.5 text-center text-6xl font-black tracking-tight">
+              FREQUENTLY <span className="text-signal">ASKED QUESTIONS</span>
+            </h1>
 
-          <p className="mt-6 text-center text-gray-400 text-lg">
-            Everything you need to know before getting your PC optimized.
-          </p>
+            <p className="mt-6 text-center text-lg text-ink-dim">
+              Everything you need to know before getting your PC optimized.
+            </p>
+          </div>
 
-          <div className="mt-16 space-y-5">
+          <div className="mt-16 space-y-3">
 
             {faqs.map((item, i) => (
-              <div
-                key={i}
-                className="overflow-hidden rounded-2xl border border-cyan-500/20 bg-white/5 backdrop-blur"
-              >
+              <div key={i} className="panel">
                 <button
                   onClick={() => setOpen(open === i ? null : i)}
-                  className="flex w-full items-center justify-between p-6 text-left text-xl font-bold hover:bg-cyan-500/10 transition"
+                  className="flex w-full items-center justify-between p-6 text-left text-xl font-bold transition hover:text-signal"
                 >
                   {item.q}
-                  <span className="text-cyan-400 text-3xl">
+                  <span className="font-mono text-3xl text-signal">
                     {open === i ? "-" : "+"}
                   </span>
                 </button>
 
                 {open === i && (
-                  <div className="border-t border-white/10 p-6 text-gray-300 leading-8">
+                  <div className="border-t border-line p-6 leading-8 text-ink-dim">
                     {item.a}
                   </div>
                 )}
@@ -73,19 +73,19 @@ export default function FAQPage() {
 
           </div>
 
-          <div className="mt-20 rounded-3xl border border-cyan-500/20 bg-cyan-500/10 p-10 text-center">
+          <div className="mt-20 panel panel-alert p-10 text-center">
 
             <h2 className="text-4xl font-black">
               STILL HAVE QUESTIONS?
             </h2>
 
-            <p className="mt-4 text-gray-300">
+            <p className="mt-4 text-ink-dim">
               Join our Discord and we&apos;ll help you choose the best optimization for your PC.
             </p>
 
             <a
               href="/discord"
-              className="mt-8 inline-block rounded-xl bg-cyan-500 px-10 py-4 text-xl font-bold text-black transition hover:bg-cyan-400"
+              className="mt-8 inline-block rounded-none bg-alert px-10 py-4 font-mono text-lg font-bold tracking-wide text-[#1A0E00] transition hover:brightness-110"
             >
               JOIN DISCORD
             </a>

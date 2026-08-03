@@ -23,9 +23,9 @@ export default function PurchaseModal({
     <>
       <button
         onClick={() => setOpen(true)}
-        className="mt-10 w-full rounded-xl bg-cyan-500 py-3 font-bold text-black transition hover:bg-cyan-400"
+        className="mt-10 w-full rounded-none bg-signal py-3 font-mono text-sm font-bold tracking-wide text-[#04140D] transition hover:brightness-110"
       >
-        Purchase
+        PURCHASE →
       </button>
 
       {typeof document !== "undefined" &&
@@ -33,46 +33,46 @@ export default function PurchaseModal({
         createPortal(
           <div
             onClick={() => setOpen(false)}
-            className="fixed inset-0 z-[999999] flex items-center justify-center bg-black/80 backdrop-blur-md p-4"
+            className="fixed inset-0 z-[999999] flex items-center justify-center bg-bg/90 p-4 backdrop-blur-md"
           >
             <div
               onClick={(e) => e.stopPropagation()}
-              className="w-[480px] max-w-full max-h-[90vh] overflow-y-auto rounded-3xl border border-cyan-500/30 bg-[#090909] p-8 shadow-[0_0_60px_rgba(0,229,255,.20)]"
+              className="panel max-h-[90vh] w-[480px] max-w-full overflow-y-auto p-8"
             >
-              <h2 className="text-3xl font-black text-white">
+              <h2 className="text-3xl font-black tracking-tight text-ink">
                 Complete Purchase
               </h2>
 
-              <div className="mt-6 rounded-xl bg-white/5 p-5">
+              <div className="mt-6 border border-line bg-bg-raised-2 p-5">
                 <div className="flex justify-between">
-                  <span className="text-gray-400">Product</span>
-                  <span className="font-bold text-white">{product}</span>
+                  <span className="font-mono text-xs text-muted">PRODUCT</span>
+                  <span className="font-bold text-ink">{product}</span>
                 </div>
 
                 <div className="mt-3 flex justify-between">
-                  <span className="text-gray-400">Price</span>
-                  <span className="text-2xl font-black text-cyan-400">
+                  <span className="font-mono text-xs text-muted">PRICE</span>
+                  <span className="font-mono text-2xl font-black text-signal">
                     {price}
                   </span>
                 </div>
               </div>
 
-              <div className="mt-6 rounded-xl border border-green-500/30 bg-green-500/10 p-6 text-center">
-                <p className="text-green-300">CASH APP</p>
+              <div className="panel panel-alert mt-6 p-6 text-center">
+                <p className="font-mono text-xs tracking-widest text-alert">CASH APP</p>
 
-                <div className="mt-2 text-4xl font-black text-green-400">
+                <div className="mt-2 font-mono text-3xl font-black text-alert">
                   $kendalfelixxs
                 </div>
 
                 <button
                   onClick={copyCashApp}
-                  className="mt-5 rounded-xl bg-green-500 px-6 py-3 font-bold text-black hover:bg-green-400"
+                  className="mt-5 rounded-none bg-alert px-6 py-3 font-mono text-sm font-bold tracking-wide text-[#1A0E00] hover:brightness-110"
                 >
                   {copied ? "✔ Copied!" : "Copy Cash App"}
                 </button>
               </div>
 
-              <p className="mt-6 text-center text-gray-400">
+              <p className="mt-6 text-center text-sm text-ink-dim">
                 After sending payment, join our Discord and create a ticket with your payment screenshot.
               </p>
 
@@ -81,14 +81,14 @@ export default function PurchaseModal({
                   href="https://discord.gg/ZWXkTTSuc"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex-1 rounded-xl bg-cyan-500 py-3 text-center font-bold text-black hover:bg-cyan-400"
+                  className="flex-1 rounded-none bg-signal py-3 text-center font-mono text-sm font-bold tracking-wide text-[#04140D] hover:brightness-110"
                 >
                   Join Discord
                 </a>
 
                 <button
                   onClick={() => setOpen(false)}
-                  className="flex-1 rounded-xl border border-white/20 py-3 font-bold text-white"
+                  className="flex-1 border border-line py-3 font-mono text-sm font-bold text-ink hover:border-alert hover:text-alert"
                 >
                   Close
                 </button>
@@ -100,4 +100,3 @@ export default function PurchaseModal({
     </>
   );
 }
-

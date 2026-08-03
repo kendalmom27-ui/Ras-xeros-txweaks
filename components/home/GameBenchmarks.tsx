@@ -1,78 +1,122 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useEffect, useRef } from "react";
 import { gameBenchmarks } from "../../lib/site";
+
+const max = Math.max(...gameBenchmarks.map((g) => g.withTweaks));
+
+function BenchRow({
+  game,
+  without,
+  withTweaks,
+  boost,
+}: {
+  game: string;
+  without: number;
+  withTweaks: number;
+  boost: number;
+}) {
+  const rowRef = useRef<HTMLDivElement>(null);
+  const stockRef = useRef<HTMLDivElement>(null);
+  const tunedRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const row = rowRef.current;
+    if (!row) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            stockRef.current?.style.setProperty("width", `${(without / max) * 100}%`);
+            tunedRef.current?.style.setProperty("width", `${(withTweaks / max) * 100}%`);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+    observer.observe(row);
+    return () => observer.disconnect();
+  }, [without, withTweaks]);
+
+  return (
+    <div
+      ref={rowRef}
+      className="grid grid-cols-1 gap-3 border-b border-line py-4 first:border-t sm:grid-cols-[150px_1fr_96px] sm:items-center sm:gap-4"
+    >
+      <div className="text-sm font-bold">{game}</div>
+
+      <div className="flex flex-col gap-1.5">
+        <div className="flex items-center gap-2.5">
+          <span className="w-11 flex-none font-mono text-[.66rem] text-muted">STOCK</span>
+          <div className="relative h-[9px] flex-1 overflow-hidden bg-bg-raised-2">
+            <div
+              ref={stockRef}
+              className="absolute inset-y-0 left-0 w-0 bg-alert/75 transition-[width] duration-1000 ease-out"
+            />
+          </div>
+          <span className="w-14 flex-none text-right font-mono text-xs text-ink-dim tabular-nums">
+            {without} fps
+          </span>
+        </div>
+        <div className="flex items-center gap-2.5">
+          <span className="w-11 flex-none font-mono text-[.66rem] text-muted">TUNED</span>
+          <div className="relative h-[9px] flex-1 overflow-hidden bg-bg-raised-2">
+            <div
+              ref={tunedRef}
+              className="absolute inset-y-0 left-0 w-0 bg-signal transition-[width] duration-1000 ease-out"
+            />
+          </div>
+          <span className="w-14 flex-none text-right font-mono text-xs text-ink-dim tabular-nums">
+            {withTweaks} fps
+          </span>
+        </div>
+      </div>
+
+      <div className="text-left font-mono font-bold text-signal sm:text-right">
+        +{boost}%
+        <small className="block font-mono text-[.62rem] font-normal tracking-widest text-muted">
+          BOOST
+        </small>
+      </div>
+    </div>
+  );
+}
 
 export default function GameBenchmarks() {
   return (
     <section className="py-24">
       <div className="mx-auto max-w-7xl px-6 md:px-8">
-        <div className="text-center">
-          <h2 className="text-4xl font-black md:text-5xl">
-            Tests in Your Favorite Games
+        <div className="max-w-[62ch]">
+          <span className="eyebrow">Benchmarks</span>
+          <h2 className="mt-3.5 text-[clamp(1.7rem,3.2vw,2.4rem)] font-black tracking-tight text-balance">
+            Stock vs. tuned, measured per title.
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-gray-400">
-            See the real performance gains with our optimization tweaks
+          <p className="mt-3.5 text-[1.02rem] text-ink-dim">
+            Every bar below is a real average FPS reading, stock vs. after a
+            Ras&amp;Xero optimization pass, scaled to the same axis so the gap is
+            honest.
           </p>
         </div>
 
-        <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {gameBenchmarks.map((bench, index) => (
-            <motion.div
-              key={bench.game}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.08 }}
-              className="rounded-2xl border border-white/10 bg-gradient-to-br from-white/5 to-transparent p-6"
-            >
-              <div className="flex items-start justify-between">
-                <h3 className="text-xl font-bold">{bench.game}</h3>
-                <span className="rounded-full bg-green-500/20 px-3 py-1 text-sm font-bold text-green-400">
-                  +{bench.boost}%
-                </span>
-              </div>
-
-              <div className="mt-6 space-y-4">
-                <div>
-                  <div className="mb-1 flex justify-between text-sm">
-                    <span className="text-gray-400">With Tweaks</span>
-                    <span className="font-bold text-cyan-400">
-                      {bench.withTweaks} FPS
-                    </span>
-                  </div>
-                  <div className="h-2 overflow-hidden rounded-full bg-white/10">
-                    <div
-                      className="h-full rounded-full bg-cyan-500"
-                      style={{
-                        width: `${Math.min(100, (bench.withTweaks / 1200) * 100)}%`,
-                      }}
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <div className="mb-1 flex justify-between text-sm">
-                    <span className="text-gray-400">Without</span>
-                    <span className="font-bold text-gray-500">
-                      {bench.without} FPS
-                    </span>
-                  </div>
-                  <div className="h-2 overflow-hidden rounded-full bg-white/10">
-                    <div
-                      className="h-full rounded-full bg-gray-600"
-                      style={{
-                        width: `${Math.min(100, (bench.without / 1200) * 100)}%`,
-                      }}
-                    />
-                  </div>
-                </div>
-              </div>
-            </motion.div>
+        <div className="mt-10">
+          {gameBenchmarks.map((bench) => (
+            <BenchRow key={bench.game} {...bench} />
           ))}
         </div>
 
-        <p className="mt-10 text-center text-sm text-gray-500">
+        <div className="mt-6 flex flex-wrap gap-6 font-mono text-xs text-muted">
+          <span className="inline-flex items-center gap-2">
+            <span className="h-2 w-2 bg-alert/75" />
+            Stock settings
+          </span>
+          <span className="inline-flex items-center gap-2">
+            <span className="h-2 w-2 bg-signal" />
+            After tuning
+          </span>
+        </div>
+
+        <p className="mt-6 font-mono text-xs text-muted">
           Tested on i7 12700KF • RTX 3070 • 32GB DDR4 4000MHz
         </p>
       </div>
