@@ -20,10 +20,6 @@ export default function DiscordPage() {
           >
             Join {site.name} Discord
           </a>
-
-          <p className="mt-8 text-sm text-gray-500">
-            Update the Discord link in <code className="text-cyan-400">lib/site.ts</code> with your real invite URL.
-          </p>
         </section>
       </main>
     </PageShell>

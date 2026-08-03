@@ -80,7 +80,7 @@ export default function FAQPage() {
             </h2>
 
             <p className="mt-4 text-gray-300">
-              Join our Discord and we'll help you choose the best optimization for your PC.
+              Join our Discord and we&apos;ll help you choose the best optimization for your PC.
             </p>
 
             <a

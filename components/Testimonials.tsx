@@ -2,17 +2,17 @@ export default function Testimonials() {
   const reviews = [
     {
       name: "Ethan M.",
-      rating: "?????",
+      rating: "★★★★★",
       text: "My FPS increased noticeably and my PC feels much smoother. The BIOS optimization alone made a huge difference."
     },
     {
       name: "Jordan K.",
-      rating: "?????",
+      rating: "★★★★★",
       text: "Professional service from start to finish. Lower latency, faster boot times, and everything was explained clearly."
     },
     {
       name: "Alex R.",
-      rating: "?????",
+      rating: "★★★★★",
       text: "The XERO'S Utility made optimizing Windows incredibly easy. Definitely worth it."
     }
   ];
@@ -47,7 +47,7 @@ export default function Testimonials() {
             </div>
 
             <p className="mt-6 leading-8 text-gray-300">
-              "{r.text}"
+              &ldquo;{r.text}&rdquo;
             </p>
 
             <div className="mt-8 border-t border-white/10 pt-5">

@@ -4,7 +4,7 @@ export const site = {
   tagline: "Faster, Smoother, Sharper",
   description:
     "Ras&Xero removes bloatware and optimizes your PC for higher FPS, lower input delay, and reduced ping. Get smoother gameplay and precision tweaks for competitive shooters.",
-  discordUrl: "https://discord.gg/rasxero",
+  discordUrl: "https://discord.gg/ZWXkTTSuc",
   twitterUrl: "#",
   youtubeUrl: "#",
   supportEmail: "support@rasxero.com",

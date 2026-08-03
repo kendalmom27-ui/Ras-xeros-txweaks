@@ -42,13 +42,13 @@ export default function DownloadsPage() {
                 <h2 className="text-2xl font-bold">Included FREE</h2>
 
                 <ul className="mt-6 space-y-3 text-gray-300">
-                  <li>? Personalized BIOS configuration</li>
-                  <li>? RAM tuning & EXPO/XMP setup</li>
-                  <li>? CPU optimization</li>
-                  <li>? Voltage tuning guidance</li>
-                  <li>? Boot optimization</li>
-                  <li>? Stability verification</li>
-                  <li>? Gaming performance tweaks</li>
+                  <li>✔ Personalized BIOS configuration</li>
+                  <li>✔ RAM tuning & EXPO/XMP setup</li>
+                  <li>✔ CPU optimization</li>
+                  <li>✔ Voltage tuning guidance</li>
+                  <li>✔ Boot optimization</li>
+                  <li>✔ Stability verification</li>
+                  <li>✔ Gaming performance tweaks</li>
                 </ul>
               </div>
 
@@ -66,6 +66,7 @@ export default function DownloadsPage() {
                 <Link
                   href="https://discord.gg/ZWXkTTSuc"
                   target="_blank"
+                  rel="noopener noreferrer"
                   className="mt-8 flex items-center justify-center gap-3 rounded-xl bg-cyan-500 py-4 text-lg font-bold text-black transition hover:bg-cyan-400"
                 >
                   <MessageCircle className="h-6 w-6" />
@@ -98,6 +99,7 @@ export default function DownloadsPage() {
               <Link
                 href="https://discord.gg/ZWXkTTSuc"
                 target="_blank"
+                rel="noopener noreferrer"
                 className="mt-8 inline-flex items-center gap-3 rounded-xl bg-cyan-500 px-10 py-4 text-lg font-bold text-black transition hover:bg-cyan-400"
               >
                 Get Started

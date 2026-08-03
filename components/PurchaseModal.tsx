@@ -68,7 +68,7 @@ export default function PurchaseModal({
                   onClick={copyCashApp}
                   className="mt-5 rounded-xl bg-green-500 px-6 py-3 font-bold text-black hover:bg-green-400"
                 >
-                  {copied ? "? Copied!" : "Copy Cash App"}
+                  {copied ? "✔ Copied!" : "Copy Cash App"}
                 </button>
               </div>
 

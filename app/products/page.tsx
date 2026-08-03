@@ -71,7 +71,7 @@ export default function ProductsPage() {
             </h1>
 
             <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-gray-400">
-              Choose the optimization package that's right for your PC. Every
+              Choose the optimization package that&apos;s right for your PC. Every
               service is designed to maximize gaming performance while keeping
               your system stable and reliable.
             </p>

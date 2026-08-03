@@ -38,33 +38,33 @@ export default function FreeBiosModal() {
                 Get a completely <span className="font-bold text-green-400">FREE</span> advanced BIOS optimization
                 tailored specifically to your hardware. Every configuration is
                 customized to maximize FPS, reduce latency, improve stability,
-                and unlock your PC's full gaming performance.
+                and unlock your PC&apos;s full gaming performance.
               </p>
 
               <div className="mt-8 grid gap-3 md:grid-cols-3">
 
                 <div className="rounded-xl border border-white/10 bg-white/5 p-4">
-                  ? CPU Optimization
+                  ✔ CPU Optimization
                 </div>
 
                 <div className="rounded-xl border border-white/10 bg-white/5 p-4">
-                  ?? Memory / RAM Tuning
+                  ✔ Memory / RAM Tuning
                 </div>
 
                 <div className="rounded-xl border border-white/10 bg-white/5 p-4">
-                  ?? Gaming Performance
+                  ✔ Gaming Performance
                 </div>
 
                 <div className="rounded-xl border border-white/10 bg-white/5 p-4">
-                  ?? Faster Boot Times
+                  ✔ Faster Boot Times
                 </div>
 
                 <div className="rounded-xl border border-white/10 bg-white/5 p-4">
-                  ??? Stability Testing
+                  ✔ Stability Testing
                 </div>
 
                 <div className="rounded-xl border border-white/10 bg-white/5 p-4">
-                  ?? Custom BIOS Configuration
+                  ✔ Custom BIOS Configuration
                 </div>
 
               </div>
@@ -76,7 +76,7 @@ export default function FreeBiosModal() {
                 </h3>
 
                 <p className="mt-3 text-gray-300">
-                  Open a ticket and we'll schedule your FREE BIOS optimization.
+                  Open a ticket and we&apos;ll schedule your FREE BIOS optimization.
                 </p>
 
                 <a

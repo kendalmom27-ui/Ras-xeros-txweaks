@@ -10,7 +10,7 @@ export default function ServicesPage() {
           </h1>
 
           <p className="mt-6 text-center text-xl text-gray-400">
-            Professional PC Optimization by RAS TXWEAKS & XERO'S TXWEAKS
+            Professional PC Optimization by RAS TXWEAKS & XERO&apos;S TXWEAKS
           </p>
 
           <div className="mt-16 grid gap-8 md:grid-cols-2">
@@ -33,7 +33,7 @@ export default function ServicesPage() {
 
             <div className="rounded-3xl border border-cyan-500/30 bg-cyan-500/10 p-8">
               <h2 className="text-3xl font-bold text-cyan-400">
-                XERO'S TXWEAKS UTILITY
+                XERO&apos;S TXWEAKS UTILITY
               </h2>
 
               <p className="mt-2 text-2xl font-bold">$10</p>
