@@ -19,12 +19,48 @@
 
 html {
   scroll-behavior: smooth;
+  /* Reserve the scrollbar gutter so opening a modal can't shift the layout */
+  scrollbar-gutter: stable;
 }
 
 body {
   margin: 0;
   background: var(--color-bg);
   color: var(--color-ink);
+}
+
+/* Dark-themed scrollbars — the browser default reads as a bright white bar
+   against this palette. Firefox uses the standard properties, Chromium the
+   -webkit pseudo-elements. */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-line-strong) transparent;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-line-strong);
+  border-radius: 999px;
+  background-clip: content-box;
+  border: 2px solid transparent;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-muted);
+  background-clip: content-box;
+  border: 2px solid transparent;
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
 }
 
 .hero-grid {

@@ -1,9 +1,12 @@
 "use client";
 
 import { useState } from "react";
+import { useScrollLock } from "../lib/useScrollLock";
 
 export default function FreeBiosModal() {
   const [open, setOpen] = useState(false);
+
+  useScrollLock(open);
 
   return (
     <>
