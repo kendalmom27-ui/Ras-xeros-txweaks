@@ -117,20 +117,6 @@ export const products = [
 
 export const addons = [
   {
-    id: "bios-basic",
-    name: "Basic BIOS Optimization",
-    price: 15,
-    description: "XMP/EXPO memory profile, boot order, and core BIOS cleanup.",
-    group: "bios",
-  },
-  {
-    id: "bios-advanced",
-    name: "Advanced BIOS Optimization",
-    price: 30,
-    description: "Full per-hardware tuning: voltages, timings, and stability validation.",
-    group: "bios",
-  },
-  {
     id: "cpu-oc",
     name: "CPU Overclock",
     price: 20,

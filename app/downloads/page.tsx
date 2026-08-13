@@ -19,7 +19,7 @@ export default function DownloadsPage() {
                 <span className="eyebrow">Free Service</span>
 
                 <h1 className="text-5xl font-black tracking-tight mt-3">
-                  RAS Advanced BIOS Optimization
+                  RASX Advanced BIOS Optimization
                 </h1>
               </div>
             </div>

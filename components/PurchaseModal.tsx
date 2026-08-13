@@ -26,18 +26,10 @@ export default function PurchaseModal({
   const total = basePrice + addonTotal;
 
   const toggle = (addon: Addon) => {
-    const group = "group" in addon ? addon.group : undefined;
-    // BIOS tiers are alternatives — picking one replaces the other
-    const rivals: string[] = group
-      ? (addons ?? [])
-          .filter((a) => "group" in a && a.group === group && a.id !== addon.id)
-          .map((a) => a.id)
-      : [];
-
     setSelected((current) =>
       current.includes(addon.id)
         ? current.filter((id) => id !== addon.id)
-        : [...current.filter((id) => !rivals.includes(id)), addon.id]
+        : [...current, addon.id]
     );
   };
 

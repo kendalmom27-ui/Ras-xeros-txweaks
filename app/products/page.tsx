@@ -8,7 +8,7 @@ const products = [
     title: "Full Optimization",
     price: "$25",
     badge: "MOST POPULAR",
-    desc: "Complete Windows optimization tuned end to end — the base package, with optional hardware overclocking and BIOS work you can add on.",
+    desc: "Complete Windows optimization tuned end to end — the base package, with optional hardware overclocking you can add on.",
     features: [
       "Windows Optimized",
       "Services Debloated",

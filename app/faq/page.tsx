@@ -22,7 +22,7 @@ const faqs = [
   },
   {
     q: "How much does it cost?",
-    a: "RASX BIOS optimization is FREE, and the Rasx Utility is complimentary with every package. Full Optimization starts at $25, with optional overclocking and BIOS add-ons at checkout."
+    a: "RASX BIOS optimization is FREE, and the Rasx Utility is complimentary with every package. Full Optimization starts at $25, with optional overclocking add-ons at checkout."
   },
   {
     q: "How do I book a session?",
