@@ -26,7 +26,7 @@ export default function DownloadsPage() {
 
             <p className="mt-8 text-xl text-ink-dim leading-9">
               Receive a completely FREE professional BIOS optimization from
-              <span className="text-signal font-bold"> RAS TXWEAKS.</span>
+              <span className="text-signal font-bold"> RASX.</span>
               {" "}Every BIOS is tuned specifically for your motherboard, CPU,
               RAM, and gaming goals to maximize performance, improve stability,
               reduce latency, and increase FPS.

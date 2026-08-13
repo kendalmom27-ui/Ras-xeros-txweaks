@@ -1,13 +1,13 @@
 export const site = {
-  name: "Ras&Xero",
-  fullName: "Ras&Xero Tweaks",
+  name: "Rasx",
+  fullName: "Rasx Tweaks",
   tagline: "Faster, Smoother, Sharper",
   description:
-    "Ras&Xero removes bloatware and optimizes your PC for higher FPS, lower input delay, and reduced ping. Get smoother gameplay and precision tweaks for competitive shooters.",
+    "Rasx removes bloatware and optimizes your PC for higher FPS, lower input delay, and reduced ping. Get smoother gameplay and precision tweaks for competitive shooters.",
   discordUrl: "https://discord.gg/ZWXkTTSuc",
   twitterUrl: "#",
   youtubeUrl: "#",
-  supportEmail: "support@rasxero.com",
+  supportEmail: "support@rasxtweaks.com",
   stats: {
     customers: "10,000+",
     users: "50,000+",
@@ -62,7 +62,7 @@ export const reviews = [
   },
   {
     title: "Best Tweaks I've Used",
-    body: "vouch ras&xero, 40 ping taking everyones wall on central too good almost unreal with it",
+    body: "vouch rasx, 40 ping taking everyones wall on central too good almost unreal with it",
     author: "Verified Customer",
   },
   {
@@ -108,9 +108,50 @@ export const products = [
     href: "/products",
   },
   {
-    name: "Ras&Xero Utility",
-    price: "$10",
-    description: "Our premium desktop utility with lifetime updates.",
+    name: "Rasx Utility",
+    price: "Included",
+    description: "Our desktop utility — complimentary with every optimization.",
     href: "/downloads",
+  },
+] as const;
+
+export const addons = [
+  {
+    id: "bios-basic",
+    name: "Basic BIOS Optimization",
+    price: 15,
+    description: "XMP/EXPO memory profile, boot order, and core BIOS cleanup.",
+    group: "bios",
+  },
+  {
+    id: "bios-advanced",
+    name: "Advanced BIOS Optimization",
+    price: 30,
+    description: "Full per-hardware tuning: voltages, timings, and stability validation.",
+    group: "bios",
+  },
+  {
+    id: "cpu-oc",
+    name: "CPU Overclock",
+    price: 20,
+    description: "Tuned all-core clock and voltage curve with stress testing.",
+  },
+  {
+    id: "gpu-oc",
+    name: "GPU Overclock",
+    price: 20,
+    description: "Core/memory offsets and fan curve tuned for sustained clocks.",
+  },
+  {
+    id: "controller-oc",
+    name: "Controller Overclock",
+    price: 10,
+    description: "Raise controller polling rate for lower stick and trigger delay.",
+  },
+  {
+    id: "km-oc",
+    name: "Keyboard & Mouse Overclock",
+    price: 10,
+    description: "Push polling to 1000Hz+ and cut input latency at the peripheral.",
   },
 ] as const;

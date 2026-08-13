@@ -12,7 +12,7 @@ export default function ServicesPage() {
             </h1>
 
             <p className="mt-6 text-xl text-ink-dim">
-              Professional PC Optimization by RAS TXWEAKS &amp; XERO&apos;S TXWEAKS
+              Professional PC Optimization by RASX
             </p>
           </div>
 
@@ -21,7 +21,7 @@ export default function ServicesPage() {
             <div className="panel p-8">
               <span className="font-mono text-[.68rem] tracking-widest text-muted">CH.01</span>
               <h2 className="mt-3 text-3xl font-bold text-signal">
-                RAS TXWEAKS BIOS OPTIMIZATION
+                RASX BIOS OPTIMIZATION
               </h2>
 
               <p className="mt-2 font-mono text-2xl font-bold text-signal">FREE</p>
@@ -38,10 +38,10 @@ export default function ServicesPage() {
             <div className="panel panel-alert p-8">
               <span className="font-mono text-[.68rem] tracking-widest text-muted">CH.02</span>
               <h2 className="mt-3 text-3xl font-bold text-alert">
-                XERO&apos;S TXWEAKS UTILITY
+                RASX UTILITY
               </h2>
 
-              <p className="mt-2 font-mono text-2xl font-bold text-alert">$10</p>
+              <p className="mt-2 font-mono text-2xl font-bold text-alert">COMPLIMENTARY</p>
 
               <ul className="mt-6 space-y-3 text-ink-dim">
                 <li>✔ Windows Tweaks</li>

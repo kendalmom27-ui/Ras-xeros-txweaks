@@ -122,7 +122,7 @@ function ScopeCanvas() {
         ref={canvasRef}
         className="mt-3 block h-[210px] w-full"
         role="img"
-        aria-label="Animated comparison of frame-time stability before and after Ras&Xero tuning, showing a smoother, higher trace after tuning."
+        aria-label="Animated comparison of frame-time stability before and after Rasx tuning, showing a smoother, higher trace after tuning."
       />
       <div className="mt-3 flex gap-5 font-mono text-xs text-ink-dim">
         <span className="inline-flex items-center gap-2">

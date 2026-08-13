@@ -94,7 +94,7 @@ export default function GameBenchmarks() {
           </h2>
           <p className="mt-3.5 text-[1.02rem] text-ink-dim">
             Every bar below is a real average FPS reading, stock vs. after a
-            Ras&amp;Xero optimization pass, scaled to the same axis so the gap is
+            Rasx optimization pass, scaled to the same axis so the gap is
             honest.
           </p>
         </div>

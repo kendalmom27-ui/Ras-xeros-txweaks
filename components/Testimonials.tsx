@@ -13,7 +13,7 @@ export default function Testimonials() {
     {
       name: "Alex R.",
       rating: "★★★★★",
-      text: "The XERO'S Utility made optimizing Windows incredibly easy. Definitely worth it."
+      text: "The Rasx Utility made optimizing Windows incredibly easy. Definitely worth it."
     }
   ];
 

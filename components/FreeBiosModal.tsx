@@ -25,7 +25,7 @@ export default function FreeBiosModal() {
               <span className="eyebrow">100% Free Service</span>
 
               <h1 className="mt-6 text-4xl font-black tracking-tight text-ink">
-                RAS TXWEAKS
+                RASX
               </h1>
 
               <h2 className="mt-2 text-2xl font-bold text-signal">

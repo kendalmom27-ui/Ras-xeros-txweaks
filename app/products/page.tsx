@@ -1,20 +1,21 @@
 import PageShell from "../../components/PageShell";
 import PurchaseModal from "../../components/PurchaseModal";
 import Testimonials from "../../components/Testimonials";
+import { addons } from "../../lib/site";
 
 const products = [
   {
     title: "Full Optimization",
     price: "$25",
     badge: "MOST POPULAR",
-    desc: "Complete Windows optimization including registry tweaks, FPS improvements, latency reduction, startup optimization and gaming performance tuning.",
+    desc: "Complete Windows optimization tuned end to end — the base package, with optional hardware overclocking and BIOS work you can add on.",
     features: [
-      "Windows Optimization",
-      "Registry Tweaks",
-      "FPS Boost",
-      "Input Delay Reduction",
-      "Gaming Tweaks"
-    ]
+      "Windows Optimized",
+      "Services Debloated",
+      "Lower Latency",
+      "Higher FPS"
+    ],
+    hasAddons: true
   },
 
   {
@@ -28,21 +29,8 @@ const products = [
       "CPU Tweaks",
       "Timer Resolution",
       "Competitive Preset"
-    ]
-  },
-
-  {
-    title: "XERO'S Utility",
-    price: "$10",
-    badge: "LIFETIME",
-    desc: "Premium optimization utility featuring one-click tweaks, gaming profiles, Windows cleanup and lifetime updates.",
-    features: [
-      "One Click Tweaks",
-      "Gaming Profiles",
-      "Windows Cleaner",
-      "FPS Optimizer",
-      "Lifetime Updates"
-    ]
+    ],
+    hasAddons: false
   }
 ];
 
@@ -113,13 +101,80 @@ export default function ProductsPage() {
 
                   </div>
 
-                  <PurchaseModal product={p.title} price={p.price} />
+                  {p.hasAddons && (
+                    <p className="mt-6 font-mono text-xs text-muted">
+                      + {addons.length} optional add-ons at checkout
+                    </p>
+                  )}
+
+                  <PurchaseModal
+                    product={p.title}
+                    price={p.price}
+                    addons={p.hasAddons ? addons : undefined}
+                  />
 
                 </div>
 
               </div>
 
             ))}
+
+            <div className="panel panel-alert">
+
+              <div className="h-1 w-full bg-alert" />
+
+              <div className="p-6">
+
+                <div className="flex items-center justify-between">
+                  <span className="font-mono text-[.68rem] tracking-widest text-muted">
+                    TIER.03
+                  </span>
+                  <span className="font-mono text-[.68rem] font-bold tracking-widest text-alert">
+                    COMPLIMENTARY
+                  </span>
+                </div>
+
+                <h2 className="mt-4 text-2xl font-black">
+                  Rasx Utility
+                </h2>
+
+                <div className="mt-5 font-mono text-5xl font-black text-alert">
+                  FREE
+                </div>
+
+                <p className="mt-6 leading-8 text-ink-dim">
+                  Our desktop utility, included at no cost with every optimization
+                  package. One-click tweaks, gaming profiles, and lifetime updates.
+                </p>
+
+                <div className="mt-8 space-y-3">
+                  {[
+                    "One Click Tweaks",
+                    "Gaming Profiles",
+                    "Windows Cleaner",
+                    "FPS Optimizer",
+                    "Lifetime Updates"
+                  ].map((feature) => (
+                    <div
+                      key={feature}
+                      className="flex items-center gap-3 text-ink-dim"
+                    >
+                      <div className="h-1.5 w-1.5 flex-none bg-alert" />
+                      {feature}
+                    </div>
+                  ))}
+                </div>
+
+                <a
+                  href="/downloads"
+                  className="mt-10 block w-full rounded-none border border-alert py-3 text-center font-mono text-sm font-bold tracking-wide text-alert transition hover:bg-alert hover:text-[#1A0E00]"
+                >
+                  INCLUDED FREE →
+                </a>
+
+              </div>
+
+            </div>
 
           </div>
 

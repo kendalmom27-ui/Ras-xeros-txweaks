@@ -9,10 +9,9 @@ export default function AboutPage() {
           <span className="eyebrow">About</span>
           <h1 className="mt-3.5 text-5xl font-black tracking-tight md:text-6xl">About Us</h1>
           <p className="mt-6 text-lg leading-8 text-ink-dim">
-            {site.fullName} was built by gamers, for gamers. We combine Ras
-            Tweaks&apos; deep Windows optimization expertise with Xero&apos;s
-            premium utility tools to deliver the best PC performance experience
-            possible.
+            {site.fullName} was built by gamers, for gamers. We pair deep Windows
+            optimization expertise with our own desktop utility tools to deliver
+            the best PC performance experience possible.
           </p>
 
           <div className="mt-16 space-y-6">
@@ -28,12 +27,12 @@ export default function AboutPage() {
 
             <div className="panel panel-alert p-8">
               <span className="font-mono text-[.68rem] tracking-widest text-muted">CH.02</span>
-              <h2 className="mt-3 text-2xl font-bold text-alert">Why Ras&amp;Xero?</h2>
+              <h2 className="mt-3 text-2xl font-bold text-alert">Why Rasx?</h2>
               <p className="mt-4 leading-8 text-ink-dim">
-                Two trusted brands, one powerful platform. Ras brings free BIOS
-                optimization and community support. Xero brings the premium
-                desktop utility. Together, we cover everything from hardware
-                tuning to software optimization.
+                One platform covering the whole stack. Free BIOS optimization,
+                active community support, and the complimentary Rasx Utility —
+                everything from hardware tuning to software optimization in one
+                place.
               </p>
             </div>
           </div>
