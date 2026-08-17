@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Sora } from "next/font/google";
 import "./globals.css";
 import { site } from "../lib/site";
 
-const inter = Inter({
+const sora = Sora({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-sora-loaded",
 });
 
 export const metadata: Metadata = {
@@ -19,8 +19,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col font-[family-name:var(--font-inter)]">
+    <html lang="en" className={`${sora.variable} h-full antialiased`}>
+      <body className="min-h-full flex flex-col font-[family-name:var(--font-sora)]">
         {children}
       </body>
     </html>

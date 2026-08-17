@@ -18,7 +18,7 @@ export default function DownloadsPage() {
               <div>
                 <span className="eyebrow">Free Service</span>
 
-                <h1 className="text-5xl font-black tracking-tight mt-3">
+                <h1 className="text-5xl font-bold tracking-tight mt-3">
                   RASX Advanced BIOS Optimization
                 </h1>
               </div>
@@ -64,18 +64,18 @@ export default function DownloadsPage() {
                   href="https://discord.gg/ZWXkTTSuc"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-8 flex items-center justify-center gap-3 rounded-none bg-signal py-4 font-mono text-sm font-bold tracking-wide text-[#04140D] transition hover:brightness-110"
+                  className="btn btn-primary mt-8 w-full"
                 >
                   <MessageCircle className="h-5 w-5" />
                   Join Discord
                 </Link>
 
                 <div className="panel panel-alert mt-6 p-5 text-center">
-                  <p className="font-mono text-xs tracking-widest text-alert">
+                  <p className="text-xs tracking-widest text-alert">
                     DISCORD INVITE
                   </p>
 
-                  <p className="mt-2 font-mono text-ink-dim">
+                  <p className="mt-2 text-ink-dim">
                     discord.gg/ZWXkTTSuc
                   </p>
                 </div>
@@ -84,7 +84,7 @@ export default function DownloadsPage() {
             </div>
 
             <div className="mt-12 border border-line bg-bg-raised-2 p-8 text-center">
-              <h2 className="text-3xl font-black">
+              <h2 className="text-3xl font-bold">
                 Ready to Optimize Your PC?
               </h2>
 
@@ -97,7 +97,7 @@ export default function DownloadsPage() {
                 href="https://discord.gg/ZWXkTTSuc"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-8 inline-flex items-center gap-3 rounded-none bg-signal px-10 py-4 font-mono text-sm font-bold tracking-wide text-[#04140D] transition hover:brightness-110"
+                className="btn btn-primary mt-8"
               >
                 Get Started
                 <ArrowRight className="h-5 w-5" />

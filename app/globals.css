@@ -1,20 +1,20 @@
-﻿@import "tailwindcss";
+@import "tailwindcss";
 
 @theme {
-  --color-bg: #0a0d0b;
-  --color-bg-raised: #101512;
-  --color-bg-raised-2: #151c18;
-  --color-ink: #e8f2ec;
-  --color-ink-dim: #b9c6bf;
-  --color-muted: #7c9186;
-  --color-signal: #57f0a6;
-  --color-signal-dim: rgba(87, 240, 166, 0.14);
-  --color-alert: #ffb454;
-  --color-alert-dim: rgba(255, 180, 84, 0.14);
-  --color-line: rgba(232, 242, 236, 0.1);
-  --color-line-strong: rgba(232, 242, 236, 0.18);
-  --font-mono: ui-monospace, "Cascadia Mono", "SFMono-Regular", Consolas,
-    "Roboto Mono", monospace;
+  --color-bg: #070b0c;
+  --color-bg-raised: #0d1315;
+  --color-bg-raised-2: #121a1c;
+  --color-ink: #dee2e6;
+  --color-ink-dim: rgba(255, 255, 255, 0.74);
+  --color-muted: rgba(255, 255, 255, 0.5);
+  --color-signal: #2dd4bf;
+  --color-signal-light: #5eead4;
+  --color-signal-dim: rgba(45, 212, 191, 0.14);
+  --color-alert: #5eead4;
+  --color-alert-dim: rgba(94, 234, 212, 0.14);
+  --color-line: rgba(255, 255, 255, 0.1);
+  --color-line-strong: rgba(255, 255, 255, 0.18);
+  --font-sora: var(--font-sora-loaded), ui-sans-serif, system-ui, sans-serif;
 }
 
 html {
@@ -27,6 +27,13 @@ body {
   margin: 0;
   background: var(--color-bg);
   color: var(--color-ink);
+}
+
+h1,
+h2,
+h3 {
+  color: #fff;
+  text-wrap: balance;
 }
 
 /* Dark-themed scrollbars — the browser default reads as a bright white bar
@@ -65,108 +72,93 @@ body {
 
 .hero-grid {
   background-image:
-    linear-gradient(rgba(87, 240, 166, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(87, 240, 166, 0.04) 1px, transparent 1px);
+    linear-gradient(rgba(45, 212, 191, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(45, 212, 191, 0.05) 1px, transparent 1px);
   background-size: 60px 60px;
   mask-image: radial-gradient(ellipse at center, black 20%, transparent 70%);
 }
 
 ::selection {
   background: var(--color-signal);
-  color: #04140d;
+  color: #04211e;
 }
 
-/* Instrument-bezel corner brackets — used instead of rounded cards/accent rails */
+/* Soft translucent card — the surface used for every panel on the site */
 .panel {
   position: relative;
-  background: var(--color-bg-raised);
+  background: rgba(255, 255, 255, 0.04);
   border: 1px solid var(--color-line);
+  border-radius: 14px;
 }
-.panel::before,
-.panel::after {
-  content: "";
-  position: absolute;
-  width: 14px;
-  height: 14px;
-  pointer-events: none;
-}
-.panel::before {
-  top: -1px;
-  left: -1px;
-  border-top: 2px solid var(--color-signal);
-  border-left: 2px solid var(--color-signal);
-}
-.panel::after {
-  bottom: -1px;
-  right: -1px;
-  border-bottom: 2px solid var(--color-signal);
-  border-right: 2px solid var(--color-signal);
-}
-.panel.panel-alert::before,
-.panel.panel-alert::after {
-  border-color: var(--color-alert);
+.panel-alert {
+  border-color: rgba(45, 212, 191, 0.3);
+  background: rgba(45, 212, 191, 0.05);
 }
 
+/* Small uppercase section label */
 .eyebrow {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  font-size: 0.75rem;
+  font-weight: 600;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--color-signal);
+}
+
+/* Outlined pill used for hero/status callouts */
+.badge-pill {
   display: inline-flex;
   align-items: center;
+  gap: 0.5em;
+  border: 1px solid rgba(45, 212, 191, 0.3);
+  border-radius: 9999px;
+  padding: 0.5rem 1.35rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-signal-light);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   gap: 0.55em;
-}
-.eyebrow::before {
-  content: "";
-  width: 7px;
-  height: 7px;
-  background: var(--color-signal);
-  box-shadow: 0 0 0 3px var(--color-signal-dim);
-  flex: none;
-}
-.eyebrow.eyebrow-alert {
-  color: var(--color-alert);
-}
-.eyebrow.eyebrow-alert::before {
-  background: var(--color-alert);
-  box-shadow: 0 0 0 3px var(--color-alert-dim);
+  border-radius: 9999px;
+  padding: 0.95rem 2.1rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1;
+  text-align: center;
+  cursor: pointer;
+  transition:
+    filter 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease;
 }
 
-.bus-line {
-  position: relative;
-  height: 2px;
-  background: var(--color-line-strong);
+.btn-primary {
+  color: #04211e;
+  background-image: linear-gradient(
+    135deg,
+    var(--color-signal-light),
+    var(--color-signal)
+  );
+  border: 0;
 }
-.bus-line .pulse {
-  position: absolute;
-  top: -3px;
-  width: 8px;
-  height: 8px;
-  background: var(--color-signal);
-  box-shadow: 0 0 12px 2px var(--color-signal-dim);
-  animation: bus-travel 5.5s linear infinite;
-}
-@keyframes bus-travel {
-  0% {
-    left: 0%;
-    opacity: 0;
-  }
-  5% {
-    opacity: 1;
-  }
-  95% {
-    opacity: 1;
-  }
-  100% {
-    left: 100%;
-    opacity: 0;
-  }
+.btn-primary:hover {
+  filter: brightness(1.08);
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .bus-line .pulse {
-    animation: none;
-    display: none;
-  }
+.btn-ghost {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+}
+.btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(255, 255, 255, 0.28);
 }

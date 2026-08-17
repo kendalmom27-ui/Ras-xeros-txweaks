@@ -41,68 +41,56 @@ export default function ProductsPage() {
 
         <section className="mx-auto max-w-6xl px-8 pb-24">
 
-          <div className="max-w-[62ch]">
-            <span className="eyebrow">Products</span>
-            <h1 className="mt-3.5 text-5xl font-black tracking-tight">
-              Optimization <span className="text-signal">Packages</span>
+          <div className="mx-auto max-w-2xl text-center">
+            <span className="eyebrow">Instant Delivery</span>
+            <h1 className="mt-4 text-[clamp(2.1rem,4vw,3rem)] font-bold tracking-tight">
+              Choose Your Package
             </h1>
 
-            <p className="mt-6 text-lg leading-8 text-ink-dim">
-              Choose the optimization package that&apos;s right for your PC. Every
-              service is designed to maximize gaming performance while keeping
-              your system stable and reliable.
+            <p className="mt-4 text-lg text-ink-dim">
+              The price you see is the price you pay — no upsells, no surprises.
             </p>
           </div>
 
           <div className="mt-16 grid gap-6 lg:grid-cols-3">
 
-            {products.map((p, i) => (
+            {products.map((p) => (
 
-              <div key={p.title} className="panel">
+              <div key={p.title} className="panel flex flex-col p-7">
 
-                <div className="h-1 w-full bg-signal" />
+                <span className="badge-pill self-start">{p.badge}</span>
 
-                <div className="p-6">
+                <h2 className="mt-5 text-2xl font-semibold">
+                  {p.title}
+                </h2>
 
-                  <div className="flex items-center justify-between">
-                    <span className="font-mono text-[.68rem] tracking-widest text-muted">
-                      TIER.0{i + 1}
-                    </span>
-                    <span className="font-mono text-[.68rem] font-bold tracking-widest text-signal">
-                      {p.badge}
-                    </span>
-                  </div>
+                <div className="mt-4 bg-gradient-to-r from-signal-light to-signal bg-clip-text text-5xl font-bold text-transparent">
+                  {p.price}
+                </div>
 
-                  <h2 className="mt-4 text-2xl font-black">
-                    {p.title}
-                  </h2>
+                <p className="mt-5 leading-7 text-ink-dim">
+                  {p.desc}
+                </p>
 
-                  <div className="mt-5 font-mono text-5xl font-black text-signal">
-                    {p.price}
-                  </div>
+                <div className="mt-7 space-y-3">
 
-                  <p className="mt-6 leading-8 text-ink-dim">
-                    {p.desc}
-                  </p>
+                  {p.features.map((feature) => (
 
-                  <div className="mt-8 space-y-3">
+                    <div
+                      key={feature}
+                      className="flex items-center gap-3 text-ink-dim"
+                    >
+                      <div className="h-1.5 w-1.5 flex-none rounded-full bg-signal" />
+                      {feature}
+                    </div>
 
-                    {p.features.map((feature) => (
+                  ))}
 
-                      <div
-                        key={feature}
-                        className="flex items-center gap-3 text-ink-dim"
-                      >
-                        <div className="h-1.5 w-1.5 flex-none bg-signal" />
-                        {feature}
-                      </div>
+                </div>
 
-                    ))}
-
-                  </div>
-
+                <div className="mt-auto">
                   {p.hasAddons && (
-                    <p className="mt-6 font-mono text-xs text-muted">
+                    <p className="mt-7 text-xs text-muted">
                       + {addons.length} optional add-ons at checkout
                     </p>
                   )}
@@ -112,67 +100,50 @@ export default function ProductsPage() {
                     price={p.price}
                     addons={p.hasAddons ? addons : undefined}
                   />
-
                 </div>
 
               </div>
 
             ))}
 
-            <div className="panel panel-alert">
+            <div className="panel panel-alert flex flex-col p-7">
 
-              <div className="h-1 w-full bg-alert" />
+              <span className="badge-pill self-start">Complimentary</span>
 
-              <div className="p-6">
+              <h2 className="mt-5 text-2xl font-semibold">
+                Rasx Utility
+              </h2>
 
-                <div className="flex items-center justify-between">
-                  <span className="font-mono text-[.68rem] tracking-widest text-muted">
-                    TIER.03
-                  </span>
-                  <span className="font-mono text-[.68rem] font-bold tracking-widest text-alert">
-                    COMPLIMENTARY
-                  </span>
-                </div>
-
-                <h2 className="mt-4 text-2xl font-black">
-                  Rasx Utility
-                </h2>
-
-                <div className="mt-5 font-mono text-5xl font-black text-alert">
-                  FREE
-                </div>
-
-                <p className="mt-6 leading-8 text-ink-dim">
-                  Our desktop utility, included at no cost with every optimization
-                  package. One-click tweaks, gaming profiles, and lifetime updates.
-                </p>
-
-                <div className="mt-8 space-y-3">
-                  {[
-                    "One Click Tweaks",
-                    "Gaming Profiles",
-                    "Windows Cleaner",
-                    "FPS Optimizer",
-                    "Lifetime Updates"
-                  ].map((feature) => (
-                    <div
-                      key={feature}
-                      className="flex items-center gap-3 text-ink-dim"
-                    >
-                      <div className="h-1.5 w-1.5 flex-none bg-alert" />
-                      {feature}
-                    </div>
-                  ))}
-                </div>
-
-                <a
-                  href="/downloads"
-                  className="mt-10 block w-full rounded-none border border-alert py-3 text-center font-mono text-sm font-bold tracking-wide text-alert transition hover:bg-alert hover:text-[#1A0E00]"
-                >
-                  INCLUDED FREE →
-                </a>
-
+              <div className="mt-4 bg-gradient-to-r from-signal-light to-signal bg-clip-text text-5xl font-bold text-transparent">
+                FREE
               </div>
+
+              <p className="mt-5 leading-7 text-ink-dim">
+                Our desktop utility, included at no cost with every optimization
+                package. One-click tweaks, gaming profiles, and lifetime updates.
+              </p>
+
+              <div className="mt-7 space-y-3">
+                {[
+                  "One Click Tweaks",
+                  "Gaming Profiles",
+                  "Windows Cleaner",
+                  "FPS Optimizer",
+                  "Lifetime Updates"
+                ].map((feature) => (
+                  <div
+                    key={feature}
+                    className="flex items-center gap-3 text-ink-dim"
+                  >
+                    <div className="h-1.5 w-1.5 flex-none rounded-full bg-signal" />
+                    {feature}
+                  </div>
+                ))}
+              </div>
+
+              <a href="/downloads" className="btn btn-ghost mt-auto w-full">
+                Included Free →
+              </a>
 
             </div>
 

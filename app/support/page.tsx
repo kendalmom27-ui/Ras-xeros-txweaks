@@ -7,7 +7,7 @@ export default function SupportPage() {
       <main className="min-h-screen bg-bg pt-28 text-ink">
         <section className="mx-auto max-w-4xl px-6 pb-24 md:px-8">
           <span className="eyebrow">Support</span>
-          <h1 className="mt-3.5 text-5xl font-black tracking-tight md:text-6xl">Support</h1>
+          <h1 className="mt-3.5 text-5xl font-bold tracking-tight md:text-6xl">Support</h1>
           <p className="mt-6 text-lg text-ink-dim">
             Find answers to common questions or reach out for help.
           </p>
@@ -25,7 +25,7 @@ export default function SupportPage() {
             <p className="text-ink-dim">Still need help?</p>
             <a
               href="/discord"
-              className="mt-4 inline-block rounded-none bg-signal px-8 py-3 font-mono text-sm font-bold tracking-wide text-[#04140D] transition hover:brightness-110"
+              className="btn btn-primary mt-4"
             >
               Contact Support on Discord
             </a>

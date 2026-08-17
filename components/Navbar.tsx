@@ -12,7 +12,7 @@ export default function Navbar() {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 md:px-8">
         <Link
           href="/"
-          className="flex items-center gap-2 text-lg font-black tracking-tight text-ink transition hover:text-signal"
+          className="flex items-center gap-2 text-lg font-bold tracking-tight text-ink transition hover:text-signal"
         >
           <svg viewBox="0 0 20 20" className="h-5 w-5 flex-none" aria-hidden="true">
             <polyline
@@ -45,15 +45,15 @@ export default function Navbar() {
         <div className="flex items-center gap-3">
           <Link
             href="/discord"
-            className="hidden rounded-none border border-line-strong px-4 py-2 text-sm font-semibold text-ink transition hover:border-alert hover:text-alert sm:inline-block"
+            className="btn btn-ghost hidden px-5 py-2.5 text-sm sm:inline-flex"
           >
             Discord
           </Link>
           <Link
             href="/free-bios"
-            className="rounded-none bg-signal px-4 py-2 font-mono text-sm font-bold tracking-wide text-[#04140D] transition hover:brightness-110"
+            className="btn btn-primary px-5 py-2.5 text-sm"
           >
-            TRY FREE →
+            Try Free →
           </Link>
         </div>
       </div>

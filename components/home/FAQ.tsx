@@ -12,15 +12,17 @@ export default function FAQ() {
   return (
     <section className="py-24">
       <div className="mx-auto max-w-3xl px-6 md:px-8">
-        <span className="eyebrow">Support Log</span>
-        <h2 className="mt-3.5 text-[clamp(1.7rem,3.2vw,2.4rem)] font-black tracking-tight text-balance">
-          Frequently Asked Questions
-        </h2>
-        <p className="mt-3.5 text-[1.02rem] text-ink-dim">
-          Everything you need to know about {site.fullName}
-        </p>
+        <div className="mx-auto max-w-2xl text-center">
+          <span className="eyebrow">Got Questions?</span>
+          <h2 className="mt-4 text-[clamp(1.9rem,3.4vw,2.6rem)] font-bold tracking-tight">
+            Frequently Asked Questions
+          </h2>
+          <p className="mt-4 text-lg text-ink-dim">
+            Everything you need to know about {site.fullName}
+          </p>
+        </div>
 
-        <div className="mt-10 space-y-3">
+        <div className="mt-12 space-y-3">
           {faqs.map((faq, index) => {
             const isOpen = openIndex === index;
 
@@ -63,7 +65,7 @@ export default function FAQ() {
           </p>
           <Link
             href="/discord"
-            className="mt-6 inline-block rounded-none bg-alert px-8 py-3 font-mono text-sm font-bold tracking-wide text-[#1A0E00] transition hover:brightness-110"
+            className="btn btn-primary mt-6"
           >
             Join Discord
           </Link>

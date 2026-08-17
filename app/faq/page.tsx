@@ -40,7 +40,7 @@ export default function FAQPage() {
 
           <div className="text-center">
             <span className="eyebrow justify-center">Support Log</span>
-            <h1 className="mt-3.5 text-center text-6xl font-black tracking-tight">
+            <h1 className="mt-3.5 text-center text-6xl font-bold tracking-tight">
               FREQUENTLY <span className="text-signal">ASKED QUESTIONS</span>
             </h1>
 
@@ -58,7 +58,7 @@ export default function FAQPage() {
                   className="flex w-full items-center justify-between p-6 text-left text-xl font-bold transition hover:text-signal"
                 >
                   {item.q}
-                  <span className="font-mono text-3xl text-signal">
+                  <span className="text-3xl text-signal">
                     {open === i ? "-" : "+"}
                   </span>
                 </button>
@@ -75,7 +75,7 @@ export default function FAQPage() {
 
           <div className="mt-20 panel panel-alert p-10 text-center">
 
-            <h2 className="text-4xl font-black">
+            <h2 className="text-4xl font-bold">
               STILL HAVE QUESTIONS?
             </h2>
 
@@ -85,7 +85,7 @@ export default function FAQPage() {
 
             <a
               href="/discord"
-              className="mt-8 inline-block rounded-none bg-alert px-10 py-4 font-mono text-lg font-bold tracking-wide text-[#1A0E00] transition hover:brightness-110"
+              className="btn btn-primary mt-8"
             >
               JOIN DISCORD
             </a>

@@ -8,7 +8,7 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-8 py-16">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-5">
           <div className="lg:col-span-2">
-            <h3 className="text-2xl font-black tracking-tight text-signal">
+            <h3 className="text-2xl font-bold tracking-tight text-signal">
               {site.fullName}
             </h3>
             <p className="mt-4 max-w-sm text-sm leading-7 text-ink-dim">
@@ -19,21 +19,21 @@ export default function Footer() {
                 href={site.discordUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="border border-line p-3 text-muted transition hover:border-signal hover:text-signal"
+                className="rounded-xl border border-line p-3 text-muted transition hover:border-signal hover:text-signal"
                 aria-label="Discord"
               >
                 <FaDiscord size={20} />
               </a>
               <a
                 href={site.twitterUrl}
-                className="border border-line p-3 text-muted transition hover:border-signal hover:text-signal"
+                className="rounded-xl border border-line p-3 text-muted transition hover:border-signal hover:text-signal"
                 aria-label="Twitter"
               >
                 <FaTwitter size={20} />
               </a>
               <a
                 href={site.youtubeUrl}
-                className="border border-line p-3 text-muted transition hover:border-signal hover:text-signal"
+                className="rounded-xl border border-line p-3 text-muted transition hover:border-signal hover:text-signal"
                 aria-label="YouTube"
               >
                 <FaYoutube size={20} />
@@ -42,7 +42,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="font-mono text-xs font-semibold uppercase tracking-widest text-muted">
+            <h4 className="text-xs font-semibold uppercase tracking-widest text-muted">
               Quick Links
             </h4>
             <ul className="mt-4 space-y-3 text-sm text-ink-dim">
@@ -65,7 +65,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="font-mono text-xs font-semibold uppercase tracking-widest text-muted">
+            <h4 className="text-xs font-semibold uppercase tracking-widest text-muted">
               Products
             </h4>
             <ul className="mt-4 space-y-3 text-sm text-ink-dim">
@@ -80,7 +80,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="font-mono text-xs font-semibold uppercase tracking-widest text-muted">
+            <h4 className="text-xs font-semibold uppercase tracking-widest text-muted">
               Support
             </h4>
             <ul className="mt-4 space-y-3 text-sm text-ink-dim">
@@ -103,8 +103,8 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-line pt-8 font-mono text-xs text-muted md:flex-row">
-          <p>© {new Date().getFullYear()} {site.fullName.toUpperCase()}. ALL RIGHTS RESERVED.</p>
+        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-line pt-8 text-xs text-muted md:flex-row">
+          <p>© {new Date().getFullYear()} {site.fullName}. All rights reserved.</p>
           <div className="flex gap-6">
             <Link href="/contact" className="hover:text-ink-dim">
               Terms

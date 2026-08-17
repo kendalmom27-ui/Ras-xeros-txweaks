@@ -40,9 +40,10 @@ function ScopeCanvas() {
     }, 1000);
 
     const styles = getComputedStyle(document.documentElement);
-    const signal = styles.getPropertyValue("--color-signal").trim() || "#57F0A6";
-    const alert = styles.getPropertyValue("--color-alert").trim() || "#FFB454";
-    const line = styles.getPropertyValue("--color-line").trim() || "rgba(232,242,236,.1)";
+    const signal = styles.getPropertyValue("--color-signal").trim() || "#2DD4BF";
+    // Stock trace stays neutral so the teal tuned trace is the only accent
+    const stockColor = "rgba(255,255,255,0.28)";
+    const line = styles.getPropertyValue("--color-line").trim() || "rgba(255,255,255,.1)";
 
     const N = 64;
     function gen(phase: number, jitter: number, base: number, amp: number) {
@@ -90,7 +91,7 @@ function ScopeCanvas() {
       const stock = gen(phase * 0.6, 0.22, 0.32, 0.1);
       const tuned = gen(phase * 0.9, 0.05, 0.72, 0.06);
 
-      drawTrace(stock, w, h, alert);
+      drawTrace(stock, w, h, stockColor);
       drawTrace(tuned, w, h, signal);
 
       phase += reduced ? 0 : 0.045;
@@ -111,27 +112,27 @@ function ScopeCanvas() {
   }, []);
 
   return (
-    <div className="panel p-4">
-      <div className="flex items-baseline justify-between font-mono text-xs tracking-wide text-muted">
-        <span>FRAME_TIME.LOG</span>
+    <div className="panel p-5">
+      <div className="flex items-baseline justify-between text-xs tracking-wide text-muted">
+        <span className="uppercase">Frame time — live</span>
         <span ref={clockRef} className="tabular-nums">
           00:00:00
         </span>
       </div>
       <canvas
         ref={canvasRef}
-        className="mt-3 block h-[210px] w-full"
+        className="mt-4 block h-[230px] w-full"
         role="img"
         aria-label="Animated comparison of frame-time stability before and after Rasx tuning, showing a smoother, higher trace after tuning."
       />
-      <div className="mt-3 flex gap-5 font-mono text-xs text-ink-dim">
+      <div className="mt-4 flex flex-wrap gap-5 text-xs text-ink-dim">
         <span className="inline-flex items-center gap-2">
-          <span className="h-2 w-2 bg-alert" />
-          STOCK — jittery, lower
+          <span className="h-2 w-2 rounded-full bg-white/30" />
+          Stock — jittery, lower
         </span>
         <span className="inline-flex items-center gap-2">
-          <span className="h-2 w-2 bg-signal" />
-          TUNED — stable, higher
+          <span className="h-2 w-2 rounded-full bg-signal" />
+          Tuned — stable, higher
         </span>
       </div>
     </div>
@@ -167,73 +168,60 @@ export default function Hero() {
             "radial-gradient(480px 320px at var(--gx, 50%) var(--gy, 10%), var(--color-signal-dim), transparent 70%)",
         }}
       />
-      <div className="relative z-10 mx-auto grid max-w-7xl gap-12 px-6 md:px-8 lg:grid-cols-[1.05fr_.95fr] lg:items-center">
-        <div>
-          <motion.span
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="eyebrow"
-          >
-            Live Readout — Tuning Bench
-          </motion.span>
+      <div className="relative z-10 mx-auto max-w-4xl px-6 text-center md:px-8">
+        <motion.span
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="badge-pill"
+        >
+          Free BIOS tuning — live now
+        </motion.span>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="mt-5 text-[clamp(2.35rem,5vw,3.6rem)] font-black leading-[1.06] tracking-tight text-balance"
-          >
-            Your rig is running <span className="text-signal">stock settings</span>{" "}
-            while you&apos;re playing ranked.
-          </motion.h1>
+        <motion.h1
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="mt-7 text-[clamp(2.4rem,5.5vw,3.75rem)] font-bold leading-[1.1] tracking-tight"
+        >
+          Optimize Your PC.{" "}
+          <span className="bg-gradient-to-r from-signal-light to-signal bg-clip-text text-transparent">
+            Unlock Its Full Potential.
+          </span>
+        </motion.h1>
 
-          <motion.p
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="mt-5 max-w-[52ch] text-lg leading-8 text-ink-dim"
-          >
-            {site.description}
-          </motion.p>
+        <motion.p
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="mx-auto mt-6 max-w-[58ch] text-lg leading-8 text-ink-dim"
+        >
+          {site.description}
+        </motion.p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="mt-8 flex flex-wrap gap-4"
-          >
-            <Link
-              href="/services"
-              className="rounded-none bg-signal px-7 py-4 text-center font-mono text-sm font-bold tracking-wide text-[#04140D] transition hover:brightness-110"
-            >
-              See the benchmarks
-            </Link>
-            <Link
-              href="/free-bios"
-              className="rounded-none border border-line-strong px-7 py-4 text-center font-mono text-sm font-bold tracking-wide text-ink transition hover:border-alert hover:text-alert"
-            >
-              Get free BIOS tuning
-            </Link>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            className="mt-8 flex flex-wrap gap-6 font-mono text-xs text-muted"
-          >
-            <span>
-              <span className="text-ink">{site.stats.customers}</span> customers tuned
-            </span>
-            <span>
-              <span className="text-ink">{site.stats.users}</span> in the community
-            </span>
-          </motion.div>
-        </div>
-
-        <ScopeCanvas />
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="mt-9 flex flex-wrap justify-center gap-4"
+        >
+          <Link href="/products" className="btn btn-primary">
+            Get Rasx Tweaks
+          </Link>
+          <Link href="/free-bios" className="btn btn-ghost">
+            See What It Does
+          </Link>
+        </motion.div>
       </div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, delay: 0.45 }}
+        className="relative z-10 mx-auto mt-16 max-w-4xl px-6 md:px-8"
+      >
+        <ScopeCanvas />
+      </motion.div>
     </section>
   );
 }

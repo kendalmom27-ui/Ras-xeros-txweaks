@@ -36,7 +36,7 @@ export default function PurchaseModal({
   };
 
   const copyCashApp = async () => {
-    await navigator.clipboard.writeText("$kendalfelixxs");
+    await navigator.clipboard.writeText("$kendalfelixxxs");
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -45,7 +45,7 @@ export default function PurchaseModal({
     <>
       <button
         onClick={() => setOpen(true)}
-        className="mt-10 w-full rounded-none bg-signal py-3 font-mono text-sm font-bold tracking-wide text-[#04140D] transition hover:brightness-110"
+        className="btn btn-primary mt-10 w-full"
       >
         PURCHASE →
       </button>
@@ -62,13 +62,13 @@ export default function PurchaseModal({
               className="panel flex max-h-[92vh] w-full max-w-4xl flex-col overflow-y-auto md:overflow-hidden"
             >
               <div className="flex flex-none items-center justify-between border-b border-line px-8 py-5">
-                <h2 className="text-2xl font-black tracking-tight text-ink">
+                <h2 className="text-2xl font-semibold tracking-tight">
                   Complete Purchase
                 </h2>
                 <button
                   onClick={() => setOpen(false)}
                   aria-label="Close"
-                  className="px-2 font-mono text-2xl leading-none text-muted transition hover:text-alert"
+                  className="px-2 text-2xl leading-none text-muted transition hover:text-white"
                 >
                   ×
                 </button>
@@ -76,15 +76,15 @@ export default function PurchaseModal({
 
               <div className="grid min-h-0 flex-1 md:grid-cols-[1.35fr_1fr]">
                 <div className="p-8 md:min-h-0 md:overflow-y-auto">
-                  <div className="border border-line bg-bg-raised-2 p-5">
+                  <div className="rounded-xl border border-line bg-white/[.04] p-5">
                     <div className="flex justify-between">
-                      <span className="font-mono text-xs text-muted">PACKAGE</span>
-                      <span className="font-bold text-ink">{product}</span>
+                      <span className="text-xs text-muted">Package</span>
+                      <span className="font-semibold text-white">{product}</span>
                     </div>
 
                     <div className="mt-3 flex justify-between">
-                      <span className="font-mono text-xs text-muted">BASE PRICE</span>
-                      <span className="font-mono font-bold text-ink tabular-nums">
+                      <span className="text-xs text-muted">Base price</span>
+                      <span className="font-semibold text-white tabular-nums">
                         ${basePrice}
                       </span>
                     </div>
@@ -105,8 +105,8 @@ export default function PurchaseModal({
                               key={addon.id}
                               className={`flex cursor-pointer items-start gap-3 border p-4 transition ${
                                 isSelected
-                                  ? "border-signal bg-signal-dim"
-                                  : "border-line bg-bg-raised-2 hover:border-line-strong"
+                                  ? "rounded-xl border-signal bg-signal-dim"
+                                  : "rounded-xl border-line bg-white/[.04] hover:border-line-strong"
                               }`}
                             >
                               <input
@@ -117,8 +117,8 @@ export default function PurchaseModal({
                               />
                               <span className="flex-1">
                                 <span className="flex items-baseline justify-between gap-3">
-                                  <span className="font-bold text-ink">{addon.name}</span>
-                                  <span className="font-mono text-sm font-bold text-signal tabular-nums">
+                                  <span className="font-semibold text-white">{addon.name}</span>
+                                  <span className="text-sm font-semibold text-signal tabular-nums">
                                     +${addon.price}
                                   </span>
                                 </span>
@@ -135,47 +135,47 @@ export default function PurchaseModal({
                 </div>
 
                 <div className="border-t border-line p-8 md:min-h-0 md:overflow-y-auto md:border-t-0 md:border-l">
-                  <span className="font-mono text-xs tracking-widest text-muted">
-                    ORDER SUMMARY
-                  </span>
+                  <span className="eyebrow">Order Summary</span>
 
                   <div className="mt-4 space-y-2 border-b border-line pb-4 text-sm">
                     <div className="flex justify-between gap-3">
                       <span className="text-ink-dim">{product}</span>
-                      <span className="font-mono text-ink tabular-nums">${basePrice}</span>
+                      <span className="text-ink tabular-nums">${basePrice}</span>
                     </div>
                     {chosen.map((addon) => (
                       <div key={addon.id} className="flex justify-between gap-3">
                         <span className="text-ink-dim">{addon.name}</span>
-                        <span className="font-mono text-signal tabular-nums">
+                        <span className="text-signal tabular-nums">
                           +${addon.price}
                         </span>
                       </div>
                     ))}
                     {chosen.length === 0 && (
-                      <p className="font-mono text-xs text-muted">No add-ons selected</p>
+                      <p className="text-xs text-muted">No add-ons selected</p>
                     )}
                   </div>
 
                   <div className="mt-4 flex items-baseline justify-between">
-                    <span className="font-mono text-xs tracking-widest text-muted">
-                      TOTAL
+                    <span className="text-xs tracking-widest text-muted uppercase">
+                      Total
                     </span>
-                    <span className="font-mono text-4xl font-black text-signal tabular-nums">
+                    <span className="bg-gradient-to-r from-signal-light to-signal bg-clip-text text-4xl font-bold text-transparent tabular-nums">
                       ${total}
                     </span>
                   </div>
 
                   <div className="panel panel-alert mt-6 p-5 text-center">
-                    <p className="font-mono text-xs tracking-widest text-alert">CASH APP</p>
+                    <p className="text-xs tracking-widest text-signal uppercase">
+                      Cash App
+                    </p>
 
-                    <div className="mt-2 font-mono text-2xl font-black break-all text-alert">
-                      $kendalfelixxs
+                    <div className="mt-2 text-2xl font-semibold break-all text-white">
+                      $kendalfelixxxs
                     </div>
 
                     <button
                       onClick={copyCashApp}
-                      className="mt-4 w-full rounded-none bg-alert px-4 py-3 font-mono text-sm font-bold tracking-wide text-[#1A0E00] hover:brightness-110"
+                      className="btn btn-primary mt-4 w-full"
                     >
                       {copied ? "✔ Copied!" : "Copy Cash App"}
                     </button>
@@ -190,14 +190,14 @@ export default function PurchaseModal({
                     href="https://discord.gg/ZWXkTTSuc"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-5 block w-full rounded-none bg-signal py-3 text-center font-mono text-sm font-bold tracking-wide text-[#04140D] hover:brightness-110"
+                    className="btn btn-primary mt-5 w-full"
                   >
                     Join Discord
                   </a>
 
                   <button
                     onClick={() => setOpen(false)}
-                    className="mt-3 w-full border border-line py-3 font-mono text-sm font-bold text-ink hover:border-alert hover:text-alert"
+                    className="btn btn-ghost mt-3 w-full"
                   >
                     Close
                   </button>
