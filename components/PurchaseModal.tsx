@@ -11,10 +11,14 @@ export default function PurchaseModal({
   product,
   price,
   addons,
+  triggerLabel = "Purchase →",
+  triggerClassName = "btn btn-primary mt-10 w-full",
 }: {
   product: string;
   price: string;
   addons?: readonly Addon[];
+  triggerLabel?: string;
+  triggerClassName?: string;
 }) {
   const [open, setOpen] = useState(false);
   const [copied, setCopied] = useState(false);
@@ -43,11 +47,8 @@ export default function PurchaseModal({
 
   return (
     <>
-      <button
-        onClick={() => setOpen(true)}
-        className="btn btn-primary mt-10 w-full"
-      >
-        PURCHASE →
+      <button onClick={() => setOpen(true)} className={triggerClassName}>
+        {triggerLabel}
       </button>
 
       {typeof document !== "undefined" &&
