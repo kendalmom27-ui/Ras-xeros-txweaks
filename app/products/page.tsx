@@ -1,6 +1,6 @@
 import PageShell from "../../components/PageShell";
 import PurchaseModal from "../../components/PurchaseModal";
-import ProductBox from "../../components/ProductBox";
+import { ServiceArt, UtilityArt } from "../../components/PackageArt";
 import Testimonials from "../../components/Testimonials";
 import { addons } from "../../lib/site";
 
@@ -12,6 +12,7 @@ import { addons } from "../../lib/site";
 const packages = [
   {
     title: "Full Optimization",
+    art: "FULL\nOPTIMIZATION",
     price: "$25",
     priceLabel: "From $25",
     badge: "Best Seller",
@@ -22,6 +23,7 @@ const packages = [
   },
   {
     title: "Extreme Tweaks",
+    art: "EXTREME\nTWEAKS",
     price: "$15",
     priceLabel: "$15",
     badge: null,
@@ -42,8 +44,13 @@ export default function ProductsPage() {
   return (
     <PageShell>
       <main className="min-h-screen bg-bg pt-28 text-ink">
-        <section className="mx-auto max-w-6xl px-6 pb-24 md:px-8">
-          <div className="mx-auto max-w-2xl text-center">
+        <section className="relative mx-auto max-w-6xl px-6 pb-24 md:px-8">
+          <div
+            aria-hidden
+            className="pointer-events-none absolute -top-44 left-1/2 h-[420px] w-[900px] -translate-x-1/2 bg-[radial-gradient(50%_50%_at_50%_50%,rgba(45,212,191,.10),transparent_70%)]"
+          />
+
+          <div className="relative mx-auto max-w-2xl text-center">
             <span className="eyebrow">Instant Delivery</span>
             <h1 className="mt-4 text-[clamp(2.1rem,4vw,3rem)] font-bold tracking-tight">
               Choose Your Package
@@ -71,9 +78,7 @@ export default function ProductsPage() {
                   </span>
                 )}
 
-                <div className="aspect-square rounded-xl bg-white/[.03] p-4">
-                  <ProductBox name={p.title} />
-                </div>
+                <ServiceArt title={p.art} />
 
                 <h2 className="mt-5 text-xl font-semibold">{p.title}</h2>
                 <p className="mt-1 text-xs tracking-widest text-muted uppercase">
@@ -110,9 +115,7 @@ export default function ProductsPage() {
                 {utility.badge}
               </span>
 
-              <div className="aspect-square rounded-xl bg-white/[.03] p-4">
-                <ProductBox name={utility.title} />
-              </div>
+              <UtilityArt />
 
               <h2 className="mt-5 text-xl font-semibold">{utility.title}</h2>
               <p className="mt-1 text-xs tracking-widest text-muted uppercase">
