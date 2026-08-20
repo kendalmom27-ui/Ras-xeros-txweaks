@@ -201,3 +201,13 @@ h3 {
     var(--color-signal)
   );
 }
+/* Append to app/globals.css — the sweep used by the hero scope. */
+
+@keyframes rasx-sweep {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
